@@ -1,5 +1,15 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import instruction from './instruction'
+import attribute from './attribute'
+import livingExample from './livingExample'
+import oneselfDirectives from './oneselfDirectives'
+import options from './options'
+import builtInComponents from './builtInComponents'
+import dynamicClassAndStyle from './dynamicClassAndStyle'
+import lifeCycle from './lifeCycle'
+import globalApi from './globalApi'
+import myself from './myself'
 import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
@@ -11,13 +21,20 @@ const routes = [
     component: Home
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
+    path: '/Jsx',
+    name: 'Jsx',
+    component: () => import('../views/Jsx.vue')
+  },
+  instruction,
+  attribute,
+  livingExample,
+  oneselfDirectives,
+  options,
+  builtInComponents,
+  dynamicClassAndStyle,
+  lifeCycle,
+  myself,
+  globalApi
 ]
 
 const router = new VueRouter({

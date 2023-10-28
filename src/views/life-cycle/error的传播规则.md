@@ -1,0 +1,7 @@
+## error传播规则
+
+1、默认情况下，如果定义了全局的errorHandler，所有的error都将最终汇总到errorHandler中做统一处理
+2、如果一个组件的继承链或父链存在多个errorCaptured钩子，则这些钩子将会被相同的错误逐级唤起。
+3、如果当前组件的errorCaptured钩子本身继续抛出错误，那么这些新的错误和原本的错误都将上传到父级组件的errorCaptured钩子，以及汇总到errorHandler
+4、如果一个errorCaptured钩子返回了false，则会阻止此error的继续向上传播，也就是说这个error到此就已经处理完毕了。这个会阻止其他任何被这个错误唤5、起的errorCaptured钩子以及全局的errorHandler。
+ **tips：如果errorCaptured本身抛出error，return false也就不会执行了。**
